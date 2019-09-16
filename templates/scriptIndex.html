@@ -1,0 +1,67 @@
+{{block "content" .}}
+
+<div>
+<form autocomplete = "off" id="searchHolder" class="form-inline my-2 my-lg-0">
+		<input id="searchbox" name="searchTerm" class="form-control mr-sm-2" type="search" placeholder="Filter" arial-label="Search">
+		<br>
+</form>
+	<div class="AutoCompleteBox" id="searchDropdown" aria-hidden="false">
+	</div>
+</div>
+<script>
+	
+	function kickOffSearch(){
+		var xhr = new XMLHttpRequest();
+		var url = "/search/";
+		inputbox = document.getElementById("searchbox");
+		var params = new FormData();
+		params.append("searchTerm",inputbox.value);
+		xhr.open('POST',url,true);
+		xhr.send(params);
+
+		xhr.addEventListener("readystatechange", processRequest, false);
+		xhr.onreadystatechange =processRequest 
+		function processRequest(e){
+			if(xhr.readyState == 4){
+				var response = JSON.parse(xhr.responseText);
+				parseResponse(response);	
+			}
+		}
+	}
+
+	var searchbox = document.getElementById("searchbox");	
+	
+	searchbox.addEventListener("input",kickOffSearch);
+	
+	document.onload=kickOffSearch();
+
+	function parseResponse(response){
+
+		var dropdownHTML = document.createElement("ul");
+		if (response == null){
+			dropdownHTML.innerHTML = "no items found";
+		}
+		else{
+		response.forEach(function(item, index){
+			var line = document.createElement("li");
+			var link = document.createElement("a");
+			var description = document.createElement("em");
+			description.innerHTML = item.Description;
+			link.href = "script/" + item.Name;
+			link.innerHTML = item.Name;
+			line.className += "autocomplete-items";
+			line.appendChild(link);
+			line.appendChild(description);
+			dropdownHTML.appendChild(line);
+		});
+		}
+		
+		var searchHolder = document.getElementById("searchDropdown");
+		while (searchHolder.firstChild){
+			searchHolder.firstChild.remove();
+			}
+		searchHolder.appendChild(dropdownHTML);
+	}
+</script>
+{{end}}
+

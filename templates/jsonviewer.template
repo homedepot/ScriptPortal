@@ -1,0 +1,36 @@
+{{block "content" .}}
+<div>
+<em>Taxonomaster, The Taxonomy Destroyer</em>
+<div>
+By Nate "L337 H@XX0R" Maile 2019<br>
+<a href="{{.Export}}" download>Download CSV</a>
+</div>
+<div>
+<ul class="collapsibleList" id="testid">
+</ul>
+<script>
+var body = document.getElementsByClassName('collapsibleList')
+
+data = {{.Data}}
+
+function addChildList (parentHtml, childJSobject) {
+	var toappend = document.createElement('li');
+	var link = document.createElement('a');
+	link.href = childJSobject.link;
+	link.title = childJSobject.name;
+	link.text = childJSobject.name;
+	toappend.appendChild(link);
+	parentHtml.appendChild(toappend);
+	if (childJSobject.hasOwnProperty('children')) {
+		for (var i = 0 ; i < childJSobject.children.length ; ++i){
+			var ul = document.createElement('ul');
+			addChildList(ul, childJSobject.children[i]);
+			parentHtml.appendChild(ul);
+		}
+	}
+}
+
+addChildList(body[0],data)
+
+</script>
+{{end}}

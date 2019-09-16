@@ -1,0 +1,46 @@
+{{block "content" .}}
+<div>
+		<div class="container"><h2>{{.Name}}</h2></div>
+		<div id="inputHolder" class="container form-group">
+			Descritption: {{.Description}}
+			<form id="form" enctype="multipart/form-data" class="scriptInput" method="POST" action="">
+				{{if .Stdin}}
+				<label for="input">Inputs</label><textarea placeholder="Inputs Go Here" style="max-width: 50%" class="form-control" name="stdinLines" type="text" value=""></textarea><br>
+				{{end}}
+				{{if .FileIn}}
+				<label for="file">File Upload</label><input name="UploadedFile" type="file"><br>
+				{{end}}
+				<h4>Options:</h4><br>
+				{{range .CmdLineOptions}}
+				<label>{{.Name}}: {{.Description}}</label><input name="{{.Name}}" type="text" value=""/><br>
+				{{end}}
+				{{range .CmdLineFlags}}
+				<label>{{.Name}}: {{.Description}}</label><input class="form-check-input" name="{{.Name}}" type="checkbox" value="true"/><br>
+				{{end}}
+				<label>Output File Name</label><input name="outputFileName" type="text" value="{{.Name}}"/>
+				<input type="hidden" id="uuid" name="uuid" value="{{.UUID}}">
+			<button class="btn btn-primary btn-lg" type="submit" onclick = "submitAndStartListening()">Start Script</button>
+			</form>
+		</div>
+	</div>
+	<div id="status" class="container" style="width: 100%; height: flex-basis auto; overflow-y: auto;">
+	
+	</div>
+	<script>
+		var alreadyUsingSocket = false
+		function submitAndStartListening(){
+		alreadyUsingSocket = true
+		let socket = new WebSocket("ws://" + location.host + "/status/{{.UUID}}");
+		document.getElementById("form").submit();
+		var statusbox = document.getElementById("status");
+		socket.onmessage = message =>{
+			statusbox.innerHTML = (statusbox.innerHTML + message.data + "<br>");
+			statusbox.scrollTop = statusbox.scrollHeight;
+		};
+		socket.onclose = function(event){
+			alreadyUsingSocket = false
+		};
+
+		};
+	</script>
+{{end}}

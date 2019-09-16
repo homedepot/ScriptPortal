@@ -1,0 +1,5 @@
+*.exe
+ScriptPortal
+tmp/*
+plugins/
+build/*
