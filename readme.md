@@ -8,7 +8,7 @@ Utilities that were previously reserved for the command line officionados are no
 
 In addition, the data flow of the application allows for users to see what's happening in the program in real time while the job is being run as opposed to a schedule and pick up later workflow that would make it difficult to see what is happening or if there were any issues in the execution of the target program. 
 
-## Script Configuration: 
+## Script Configuration:
 The format is defined by the following go code, encoded according to encoding/json standards. 
 ```go
 type script struct {
@@ -30,7 +30,7 @@ type flag struct {
         Prefix      string
         Description string
 }
-//Same as flag, but shown to the user as a text box. The text the user puts in is the next argument after the prefix argument when passed to the target script. 
+//Same as flag, but shown to the user as a text box. The text the user puts in is the next argument after the prefix argument when passed to the target script.
 type option struct {
         Name        string
         Prefix      string
@@ -58,7 +58,7 @@ ex:
 func Path() string { return "/abc/" }
 ```
 	
-HandleRequest -> a function that takes types http.ResponseWriter, *http.Request, and chan []byte. If the endpoint is meant to have information that shows within the header and footer information, it should send type []byte of the data to be included over the channel, and then close it. If the data is to be added directly to the http.ResponseWriter, write to it like a normal http response and close the channel when you are done. 
+HandleRequest -> a function that takes types http.ResponseWriter, *http.Request, and chan []byte. If the endpoint is meant to have information that shows within the header and footer information, it should send type []byte of the data to be included over the channel, and then close it. If the data is to be added directly to the http.ResponseWriter, write to it like a normal http response and close the channel when you are done.
 
 ex: 
 ```go
