@@ -7,7 +7,7 @@ rm build/*
 go build -o build/ScriptPortal scriptPortal.go
 ##build the plugins
 if [ find plugins -name '*.go' ]
-do
+then
 	cd plugins
 	go get -d ./...
 	cd ..
@@ -15,5 +15,5 @@ do
 	do
 		go build -buildmode=plugin -o "build/$(basename $f .go).so" $f
 	done
-done
+fi
 
