@@ -10,5 +10,8 @@ fi
 mkdir -p /usr/share/ScriptPortal
 cp -r templates /usr/share/ScriptPortal
 #put the compiled plugins in /var/opt because that's what man heir says
-mkdir -p /var/opt/ScriptPortal;	
-cp build/*.so /var/opt/ScriptPortal/
+if [ -f build/*.so ]
+then
+	mkdir -p /var/opt/ScriptPortal;	
+	cp build/*.so /var/opt/ScriptPortal/
+fi
