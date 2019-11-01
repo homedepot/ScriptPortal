@@ -108,7 +108,8 @@ func ScriptMaster(w http.ResponseWriter, r *http.Request) {
 		setupAndRunScript(w, r)
 
 	default:
-		fmt.Fprintf(w, "You're not supposed to do that")
+		w.WriteHeader(403)
+		fmt.Fprintf(w, "This endpoint accepts only GET and POST options")
 	}
 }
 
