@@ -51,10 +51,9 @@ func genUUID() string {
 //this is deceptively named. It actually does quite a bit more than just retrieving the file name.
 func getFileNameFromUpload(file multipart.File, header *multipart.FileHeader, err error) (name string) {
 	defer file.Close()
-	os.MkdirAll("./tmp", os.ModeDir)
 	fileNameParts := strings.Split(header.Filename, ".")
 
-	name = "./tmp/" + genUUID() + "." + fileNameParts[len(fileNameParts)-1]
+	name = "/tmp/scriptportal" + genUUID() + "." + fileNameParts[len(fileNameParts)-1]
 
 	f, err := os.OpenFile(name, os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
