@@ -4,7 +4,7 @@ install build/ScriptPortal /usr/bin
 #move main config to var/lib because that's what man heir says
 mkdir -p /var/lib/ScriptPortal
 if [ ! -f /var/lib/ScriptPortal/scriptconfig.json ]; then
-	cp config/scriptconfig.json /var/lib/ScriptPortal/scriptConfig.json
+	cp templates/scriptconfig.json /var/lib/ScriptPortal/scriptConfig.json
 fi
 #put the templates in /usr/share because that what man heir says
 mkdir -p /usr/share/ScriptPortal

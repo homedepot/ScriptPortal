@@ -1,8 +1,8 @@
 [
 		{
-			"name":"test",
+			"name":"File Echo",
 			"interpreter":"python",	
-			"filePath":"scriptTest/scripttest.py",
+			"filePath":"testScripts/fileEcho.py",
 			"stdin":"false",
 			"fileIn":"true",
 			"CmdLineOptions":[
@@ -22,6 +22,16 @@
 			"outputType":"stdout",
 			"fileExtension":".csv",
 			"description":"This is a test script used to test various features of the portal. ",
+			"extDesc":"this script is constantly changing in order to test the functionality of new features in the script portal. It is not a constant api as it needs to be edited to suit the needs at hand"
+		},
+		{
+			"name":"Input Echo",
+			"interpreter":"python",	
+			"filePath":"testScripts/inputEcho.py",
+			"stdin":"true",
+			"outputType":"stdout",
+			"fileExtension":".txt",
+			"description":"This is a test script that acts as an echo based on stdin",
 			"extDesc":"this script is constantly changing in order to test the functionality of new features in the script portal. It is not a constant api as it needs to be edited to suit the needs at hand"
 		}
 ]
