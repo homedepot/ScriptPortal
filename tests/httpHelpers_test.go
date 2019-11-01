@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.homedepot.com/nxm8mmu/ScriptPortal/endpoints/httpHelpers"
+	"github.com/homedepot/ScriptPortal/endpoints/httpHelpers"
 	"testing"
 )
 
