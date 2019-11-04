@@ -12,7 +12,7 @@ In addition, the data flow of the application allows for users to see what's hap
 1. clone the repo (preferably using go get)
 2. cd to the repo
 3. run the docker build command ```docker build -t scriptportal .```
-4. run the container and bind port 80 on local to the container ```docker run -p80:80 ScriptPortal```
+4. run the container and bind port 80 on local to the container ```docker run -p80:80 scriptportal```
 5. connect to [localhost](http://localhost) from your web browser
 
 ## Script Configuration:
