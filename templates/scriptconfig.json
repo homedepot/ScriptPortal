@@ -4,21 +4,6 @@
 			"interpreter":"python",	
 			"filePath":"testScripts/fileEcho.py",
 			"stdin":"false",
-			"fileIn":"true",
-			"CmdLineOptions":[
-				{	
-					"name":"Directory",
-					"prefix":"-d",
-					"description":"the directory or something like that"
-				}
-			],
-			"CmdLineFlags":[{
-					"name":"Bytes",
-					"prefix":"-b",
-					"description":"bytes or something like that"
-			}
-			]
-			,
 			"outputType":"stdout",
 			"fileExtension":".csv",
 			"description":"This is a test script used to test various features of the portal. ",
