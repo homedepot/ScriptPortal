@@ -33,5 +33,29 @@
 			"fileExtension":".txt",
 			"description":"This is a test script that acts as an echo based on stdin",
 			"extDesc":"this script is constantly changing in order to test the functionality of new features in the script portal. It is not a constant api as it needs to be edited to suit the needs at hand"
+		},
+		{	
+			"name":"Extended Option Show",
+			"interpreter":"python",	
+			"filePath":"testScripts/flagTest.py",
+			"stdin":"false",
+			"CmdLineOptions":[
+				{	
+					"name":"Option 1",
+					"prefix":"-o1",
+					"description":"the first option and what it is"
+				}
+			],
+			"CmdLineFlags":[{
+					"name":"Flag 1",
+					"prefix":"-f1",
+					"description":"the first flag is present or not"
+			}
+			]
+			,
+			"outputType":"stdout",
+			"fileExtension":".csv",
+			"description":"This gives you as a file and shows you exactly how the file is called. This is for a demonstration of how the command line flags and options are parsed and presented",
+			"extDesc":"this script is constantly changing in order to test the functionality of new features in the script portal. It is not a constant api as it needs to be edited to suit the needs at hand"
 		}
 ]
