@@ -8,6 +8,13 @@ Utilities that were previously reserved for the command line officionados are no
 
 In addition, the data flow of the application allows for users to see what's happening in the program in real time while the job is being run as opposed to a schedule and pick up later workflow that would make it difficult to see what is happening or if there were any issues in the execution of the target program. 
 
+## Getting started
+1. clone the repo (preferably using go get)
+2. cd to the repo
+3. run the docker build command ```docker build -t ScriptPortal .```
+4. run the container and bind port 80 on local to the container ```docker run -p80:80 ScriptPortal```
+5. connect to [localhost](http://localhost) from your web browser
+
 ## Script Configuration:
 The format is defined by the following go code, encoded according to encoding/json standards. 
 ```go
