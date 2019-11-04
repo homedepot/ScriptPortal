@@ -2,7 +2,10 @@
 
 mkdir -p build
 #clean up
-rm build/*
+if [ -f build ]
+then
+	rm build/*
+fi
 ##build the portal
 go build -o build/ScriptPortal scriptPortal.go
 ##build the plugins
