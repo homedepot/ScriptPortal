@@ -18,7 +18,7 @@ then
 	do
 		go build -buildmode=plugin -o "build/$(basename $f .go).so" $f
 	done
-	"build finished"
+	echo "build finished"
 else
 	echo "no plugins found, build finished"
 fi
